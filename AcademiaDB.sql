@@ -58,6 +58,7 @@ alunos right join modalidades
 on modalidades.id_modalidade = alunos.modalidade_id;
 
 --CRIANDO TRIGGER
+DELIMITER $$
 CREATE TRIGGER aluno_matriculado AFTER INSERT
 ON alunos
 FOR EACH ROW
@@ -66,5 +67,6 @@ BEGIN
         INSERT INTO aviso(aluno_avisado_id, mensagem) VALUES
         (NEW.id_aluno, CONCAT(NEW.nome_alunos,', selecione uma modalidade.'));
     END IF;
-END
+END $$
+DELIMITER;
 
