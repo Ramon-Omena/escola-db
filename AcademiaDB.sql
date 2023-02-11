@@ -64,7 +64,7 @@ FOR EACH ROW
 BEGIN
     IF NEW.modalidade_id IS NULL THEN
         INSERT INTO aviso(aluno_avisado_id, mensagem) VALUES
-        (NEW.id_aluno, CONCAT('NEW.nome_alunos', selecione uma modalidade.'));
+        (NEW.id_aluno, CONCAT(NEW.nome_alunos,', selecione uma modalidade.'));
     END IF;
 END
 
